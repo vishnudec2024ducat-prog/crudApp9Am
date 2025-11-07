@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import Product from './Product'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProducts } from '../utility/ProductSlice'
+import Notfound from './Notfound'
 
 const Flipkart = () => {
         const dispatch = useDispatch()
@@ -15,7 +16,7 @@ const Flipkart = () => {
     <div>
       <div className="row my-2">
         {isLoading ? (
-          <h1>loading.....</h1>
+         <Notfound/>
         ) : (
           productList.map((elm, ind) => <Product key={ind} elm={elm} />)
         )}
