@@ -80,6 +80,15 @@ const UserSlice  = createSlice({
         handleUser:(state,action)=>{
             state.user = {...state.user,...action.payload}
             // {name:"",age:"",email:"",address:"",image:"",name:"rahul"}
+        },
+        handleemptyUser:(state,action)=>{
+          state.user = {
+            name: "",
+            age: "",
+            email: "",
+            address: "",
+            image: "",
+          };
         }
     },
     extraReducers:(builder)=>{
@@ -101,6 +110,11 @@ const UserSlice  = createSlice({
         })
     }
 })
-export const { handleClose, handleShow, handleCheckForm, handleUser } =
-  UserSlice.actions;
+export const {
+  handleClose,
+  handleShow,
+  handleCheckForm,
+  handleUser,
+  handleemptyUser,
+} = UserSlice.actions;
 export default UserSlice.reducer

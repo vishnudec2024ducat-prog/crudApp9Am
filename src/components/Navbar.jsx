@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { handleShow } from "../utility/UserSlice";
+import { handleCheckForm, handleemptyUser, handleShow } from "../utility/UserSlice";
 
 const Navbar = () => {
   const dispatch = useDispatch()
   const handleAdd = ()=>{
+    dispatch(handleCheckForm("Add"))
+    dispatch(handleemptyUser())
       dispatch(handleShow())
   } 
   return (

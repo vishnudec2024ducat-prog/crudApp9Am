@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteUser, getAllUser, getSingleUser, handleCheckForm, handleShow } from '../utility/UserSlice';
+import { deleteUser, getAllUser, getSingleUser, handleCheckForm, handleemptyUser, handleShow } from '../utility/UserSlice';
 
 
 const Admin = () => {
@@ -18,6 +18,14 @@ const handleEdit = (id)=>{
   dispatch(handleCheckForm("Edit"))
   dispatch(getSingleUser(id))
   dispatch(handleShow())
+}
+
+const handleRead =(id)=>{
+    dispatch(handleemptyUser())
+    dispatch(handleCheckForm("Read"))
+    dispatch(getSingleUser(id));
+    dispatch(handleShow());
+    console.log("jsdfh")
 }
   return (
     <div>
@@ -61,7 +69,7 @@ const handleEdit = (id)=>{
                       onClick={()=>handleDelete(id)}
                     >Delete</button>
                     <button className="btn btn-warning"
-                      // onClick={()=>handleRead(id)}
+                      onClick={()=>handleRead(id)}
                     >Read</button>
                   </div>
                 </td>
